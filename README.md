@@ -1,6 +1,6 @@
 This is my project for my MBA course Human Resources.
 
-# Utilizing Social Styles for Communication at Remote Work
+# Utilizing Social Styles and AI for Improving Communication at Remote Work
 
 Every individual possesses distinct social traits and viewpoints, contributing to a diverse array of thoughts and understandings. In the context of remote work, as communication methods shift towards greater asynchrony, the uniqueness of these social traits often fades into the background. Messages received are processed through the lens of one's own social style, neglecting the understanding of others' perspectives. Similarly, when composing messages or emails, individuals tend to express themselves according to their own social style, without considering how the recipient might interpret the message. The concept of Social Styles, developed by industrial psychologists David Merrill and Roger Reid in the early 1960s, delves into observable behavior, defining it as "you that's on display." This model explores assertiveness and responsiveness, categorizing individuals into four social styles: Analytical, Driving, Expressive, and Amiable [\[5\]](https://www.pocketbook.co.uk/blog/2017/04/18/david-merrill-roger-reid-social-styles/).
 
