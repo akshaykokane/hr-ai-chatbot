@@ -29,8 +29,12 @@
     <Folder Include="Models\" />
     <Folder Include="wwwroot\*" />
   </ItemGroup>
-<ItemGroup>
-  <Content Update="wwwroot\*.*" CopyToPublishDirectory="Never" />
-</ItemGroup>
 
+
+  <ItemGroup>
+    <Content Remove="wwwroot\index.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\index.html" />
+  </ItemGroup>
 </Project>

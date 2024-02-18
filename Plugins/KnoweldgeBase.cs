@@ -6,19 +6,103 @@ namespace ai_assistan2
 {
 	public class GetSocialInfo
 	{
-		[KernelFunction, Description(@"Provides information about social style for ""Amiable"". Use this if you want to get social style info for Amiable person")]
-		public string GetSocialStyleKnowledgeAmiable()
-		{
-			return "People with an amiable style are viewed as casual, likeable, and kind. Amiables are incredibly responsive\nto praise and try to minimize interpersonal conflict. They generally let others take the initiative in social\nsituations. They are incredibly friendly and are seen as easy to be with. They are not usually highly\ncompetitive and resist imposing themselves or options on others. They are most concerned with feelings\nand relationships as opposed to logic and tasks. Amiables tend to be permissive with others,\nunpretentious, and very intuitive. Because of their affable nature, they find it difficult to say no.\nAmiables seek close, warm, and lasting relationships. They are good listeners who take time with people\nto help them feel at ease. They approach others on a relationship rather than task basis and accept many\nstyles of people, partly because of their need to be liked. They are very responsive to praise, eager to\nplease, and often consent rather than cause conflict. They avoid hurt feelings at all costs and may often\nfeel resentment when their feelings are hurt.\nOn the job, Amiables tend to forego planning and goal-setting and may need structure and specific task\ndescriptions. The need frequent feedback, and respond well to positive reinforcement, completing tasks\nat a high level as they are very service oriented. They try to please others by doing more than what is\nexpected, they like reassurance that they are doing what is acceptable, and they respond to personal\nattention. Their communication is often long, with a focus on relationships and feelings. They are most\neffective when they can apply their relationships skills to teams and individuals. Once they have formed\nan emotional allegiance, they will be loyal. They want to believe they are heard, understood, and not\nrushed. They often view rapid decision making with a lack of caring. At times, they would benefit by\nproviding more direct and honest feedback.\nWhile on one hand, Amiables may be perceived as affable, empathetic, supportive, easy-going, eager to\nplease, and intuitive, they can be seen as wishy-washy, overly yielding, and too needy.\nSTYLE DESCRIPTIONS\n Patient\n Sympathetic\n Empathetic\n Supportive\n Trusting\n Team Oriented\n Loyal\n Positive\nWANTS\n Security\n Appreciation\n Positive reinforcement\n. OMMUNICATION FOCUS WITH\nAMIABLES\nDO\n Be friendly and informal\n Be personal and personable\n Focus on relationship and how\nwork affects the relationships\n Give positive reinforcement and\nfeedback\n Allow them to feel heard\nDO NOT\n Hurry them\n Confront, attack them\n Push for immediate commitment\n Force them to find a solution,\nrather than listen\n Be dictatorial or autocratic\n Force change\n Focus too much on facts rather\nthan relationships\n";
 
+        [KernelFunction, Description(@"Find social style of employee by name")]
+        public string FindSocialStyleByName(
+            [Description("name")] string employeeName)
+        { 
+            switch (employeeName)
+            {
+                case "AK":
+                    return "DRIVER";
+                case "SA":
+                    return "AMIABLE";
+                case "AB":
+                    return "ANALYTICAL";
+                case "SP":
+                    return "DRIVER";
+                case "KA":
+                    return "DRIVER";
+                default:
+                    return "Unknown social style";
+            }
         }
 
-        [KernelFunction, Description(@"Provides information about social style for ""Driver"". Use this if you want to get social style info for Driver person")]
-        public string GetSocialStyleKnowledgeDriver()
+            [KernelFunction, Description(@"Helps to identify alternation for communication with different social styles")]
+        public string HowShouldIAlterMyCommuicationStyle(
+                        [Description("my social style")] string mySocialStyle,
+                        [Description("teammate social style")] string teammateSocialStyle)
         {
-            return "People with a driver style tend to be active, ambitious, and independent. They take the initiative with\nothers, both individually and in groups. They enjoy orchestrating things, which they usually do with a\ntake-charge attitude, giving off an appearance of self-confidence. Drivers like information and often\nmake it their business to discern the who, what, where, when and how of any given situation. Generally\nstrong-willed and forceful, they are willing to confront others about their ideas and attitudes. They tend\nto make decisions easily and rapidly, which conveys a sense of efficiency and urgency. They have a\nstrong task oriented and results driven approach. They prefer order and organization and can easily make\norder from chaos. They like to be fully in charge of situations and want to have control over all parts of\ntheir lives.\nDrivers will look to others for results but may not offer encouragement, inspiration, or support. They can\nbe seen as demanding without realizing their behavior might be irritating and discouraging to others.\nThey are frequently viewed as competent and determined, but at times may push too hard and be too\ncritical of others. Typically, they want to get the job done first before taking time to work on\ninterpersonal relationships. People with a Driver style tend to lack patience and may not find it rewarding\nto work on the same project of long periods of time. They need to improve their ability to listen to others\nand recognize the importance of feelings as well as logic.\nOn the job, Drivers will generally respond to a fast moving challenge and will get bored if the pace is too\nslow. They like to set objectives and work toward them in an orderly fashion. Because they direct energy\ntoward task results, others will naturally accept the Driver’s authority and leadership.\nWhile on one hand, Drivers are seen as decisive, competent, and results driven, they can be perceived as\ntoo direct, arrogant, assertive, and demanding.\nSTYLE DESCRIPTIONS\n Action-oriented\n Results-driven\n Decisive\n Problem-solver\n Competitive\n Independent\n Assertive\n Demanding\nWANTS\n Challenges\n Power\n Control\n Results. OMMUNICATION FOCUSES WITH\nDRIVERS\nDO\n Focus on the present\n Be brief and efficient\n Be conclusion oriented\n Speak in terms of concrete results\n Give them options\n Let them feel in control\nDO NOT\n Give excessive detail\n Waste time\n Ramble on, hide conclusion/\nmain point\n Be ambiguous\n Focus on feelings\n";
-
+            if (mySocialStyle == "DRIVER" && teammateSocialStyle == "DRIVER")
+            {
+                return "Maintain peer status, share the responsibilities of leadership";
+            }
+            else if (mySocialStyle == "DRIVER" && teammateSocialStyle == "Expressive")
+            {
+                return "Shift your focus to a more general outlook, be less formal";
+            }
+            else if (mySocialStyle == "DRIVER" && teammateSocialStyle == "AMIABLE")
+            {
+                return "Slow your pace and focus more on the relationships";
+            }
+            else if (mySocialStyle == "DRIVER" && teammateSocialStyle == "ANALYTICAL")
+            {
+                return "Focus on some detail in relation to the goals";
+            }
+            else if (mySocialStyle == "Expressive" && teammateSocialStyle == "DRIVER")
+            {
+                return "Shift focus more toward the goal, less generalities. Be a little less casual";
+            }
+            else if (mySocialStyle == "Expressive" && teammateSocialStyle == "Expressive")
+            {
+                return "Listen more, take notes, don’t try to outtalk each other";
+            }
+            else if (mySocialStyle == "Expressive" && teammateSocialStyle == "AMIABLE")
+            {
+                return "Slow your pace and focus more on the relationship";
+            }
+            else if (mySocialStyle == "Expressive" && teammateSocialStyle == "ANALYTICAL")
+            {
+                return "Focus on some detail in relation to the goals";
+            }
+            else if (mySocialStyle == "AMIABLE" && teammateSocialStyle == "DRIVER")
+            {
+                return "Shift focus more toward the goal, less generalities";
+            }
+            else if (mySocialStyle == "AMIABLE" && teammateSocialStyle == "Expressive")
+            {
+                return "Pick up the pace, focus less on the relationship";
+            }
+            else if (mySocialStyle == "AMIABLE" && teammateSocialStyle == "AMIABLE")
+            {
+                return "Focus more on the issues at hand and less on popularity and networking";
+            }
+            else if (mySocialStyle == "AMIABLE" && teammateSocialStyle == "ANALYTICAL")
+            {
+                return "Focus less on the relationship and more on details";
+            }
+            else if (mySocialStyle == "ANALYTICAL" && teammateSocialStyle == "DRIVER")
+            {
+                return "Pick up the pace and focus less on details and more on the goal";
+            }
+            else if (mySocialStyle == "ANALYTICAL" && teammateSocialStyle == "Expressive")
+            {
+                return "Focus a little less on detail. Be a little more casual";
+            }
+            else if (mySocialStyle == "ANALYTICAL" && teammateSocialStyle == "AMIABLE")
+            {
+                return "Focus a little more on the relationship. Be more casual";
+            }
+            else if (mySocialStyle == "ANALYTICAL" && teammateSocialStyle == "ANALYTICAL")
+            {
+                return "Try to look at ideas more objectively. You both need to be right";
+            }
+            else
+            {
+                return "Invalid combination of personalities";
+            }
         }
+
     }
 }
 
